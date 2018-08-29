@@ -7,8 +7,8 @@
 
 - name: Promote to domain controller
   domain_controller: >
-    domain_name={{ ad_domain_name }}
-    safe_mode_password={{ ad_safe_mode_password }}
+    domain_name={{ active_directory_ad_domain_name }}
+    safe_mode_password={{ active_directory_ad_safe_mode_password }}
   register: result
 
 - name: Reboot upon promotion
