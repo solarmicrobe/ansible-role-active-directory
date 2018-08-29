@@ -13,8 +13,6 @@
   register: result
 
 - name: Reboot upon promotion
-  raw: shutdown /r
+  win_reboot:
   when: result is changed
-  async: 0
-  poll: 0
   ignore_errors: true
