@@ -8,12 +8,13 @@
 - name: Promote to domain controller
   domain_controller: >
     domain_name={{ active_directory_ad_domain_name }}
+    netbios_name={{ active_directory_ad_netbios_name }}
     safe_mode_password={{ active_directory_ad_safe_mode_password }}
   register: result
 
 - name: Reboot upon promotion
   raw: shutdown /r
-  when: result|changed
+  when: result is changed
   async: 0
   poll: 0
   ignore_errors: true
